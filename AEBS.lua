@@ -10,7 +10,11 @@ AEBMenu = menu.new
             help = "Start AEB Script.",
 			help2 = "Leave it work and take a coffe. :)",
         },
-
+        {
+            name = "FocusStacking",
+			help = "Make x photo from FP to HFD.",
+            choices = { "Yes", "No" },
+        },
         {
             name = "Ev Bracket",
             help = "If Ev Bracket is lower or equal 3, take 3 photo.",
@@ -62,26 +66,27 @@ function TakeBlackFrame()  --Put a black frame at the and of bracketed image
 end
 
 function FocusStack()
-    local target = lens.dof_far
+	local target = lens.dof_far
 
     takeshoot()  --First photo at user select (first) focus plane
-
-    while true do
-        if lens.focus_distance >= lens.hyperfocal then
-            break
-        end
-        repeat
-	        lens.focus(-1,2,false)
-	    until lens.dof_near >= target   --move the min dof focus point of the next photo to the max dof of old photo
-        target = lens.dof_far
-        takeshoot()
-    end
+	if AEBMenu.submenu["FocusStacking"].value == "Yes" then
+		while true do
+			if lens.focus_distance >= lens.hyperfocal then
+				break
+			end
+			repeat
+				lens.focus(-1,2,false)
+			until lens.dof_near >= target   --move the min dof focus point of the next photo to the max dof of old photo
+			target = lens.dof_far
+			takeshoot()
+		end
+	end
 
 end
 
 function takeshoot()
-local EC = AEBMenu.submenu["Ev Bracket"].value
-local shutterok = camera.shutter.value
+	local EC = AEBMenu.submenu["Ev Bracket"].value
+	local shutterok = camera.shutter.value
     console.show()
     print("First shoot at 0EC", camera.shutter.value)
     msleep(500)
