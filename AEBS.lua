@@ -45,11 +45,14 @@ function TakeBlackFrame()  --Put a black frame at the and of bracketed image
 	if AEBMenu.submenu["FinishBlackFrame"].value == "Yes" then
 		local tv = camera.shutter.ms
 		local av = camera.aperture.value 
+		local iso = camera.iso.value
 		camera.shutter.ms = 1
-		camera.aperture.apex = 9
+		camera.aperture.apex = camera.aperture.min.apex
+		camera.iso.value = 100
 		camera.shoot(false)
 		camera.shutter.ms = tv
 		camera.aperture.value = av
+		camera.iso.value = iso
 	end
 end
 
