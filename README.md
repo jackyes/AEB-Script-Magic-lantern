@@ -1,8 +1,8 @@
 # AEB-Script-Magic-lantern
-Remember to change DOF in the ML menù.
+Remember to change DOF in the ML menù.  
 
 
 
-Note:
-ML = Magic Lntern
+Note:  
+ML = Magic Lntern  
 DOF = Deep Of Field
