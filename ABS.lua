@@ -86,38 +86,3 @@ local shutterok = camera.shutter.value
     console.hide()
 end
 
-
-    takeshoot()  --First photo at user select (first) focus plane
-
-    while true do
-        if lens.focus_distance >= lens.hyperfocal then
-            break
-        end
-        repeat
-	        lens.focus(-1,2,false)
-	    until lens.dof_near >= target   --move the min dof focus point of the next photo to the max dof of old photo
-        target = lens.dof_far
-        takeshoot()
-    end
-
-end
-
-function takeshoot()
-local shutterok = camera.shutter.value
-    console.show()
-    print("first shot at %s", camera.shutter:__tostring())
-    msleep(1000)
-    shoot (64,false)
-    msleep(1000)
-    camera.shutter.value = shutterok * 4
-    print("second shot at 2EV %s", camera.shutter:__tostring())
-    msleep(1000)
-    shoot (64,false)
-    camera.shutter.value = shutterok / 4
-    print("second shot at -2EV %s", camera.shutter:__tostring())
-    msleep(1000)
-    shoot (64,false)
-    camera.shutter.value = shutterok
-    console.hide()
-end
-
