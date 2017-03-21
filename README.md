@@ -1,8 +1,14 @@
 # AEB-Script-Magic-lantern
-Remember to change DOF in the ML menù.  
+Remember to:  
+Change DOF in the ML menù. 
+Set EFCS in CANON menù.  
+Go in LV, open ML menù, start the AEB script.  
+
 
 
 
 Note:  
 ML = Magic Lntern  
-DOF = Deep Of Field
+DOF = Deep Of Field  
+EFCS = Electronic First Curtain Shutter  
+LV = Live View  
