@@ -20,6 +20,16 @@ function main()
 	display.notify_box("Starting....", 1000)
  	if lens.focus_distance > lens.hyperfocal then
 		display.notify_box("FP > HFD", 2000)
+	elseif lens.dof_far == lens.dof_near then
+		--THANKS to grayheron!!
+		display.notify_box("Check ML setting for CoC", 2000)
+	elseif math.abs(lens.dof_near-lens.dof_far) < 10 then 
+		--THANKS to grayheron!!
+		-- adjust this test to your taste (default is 10mm)
+		-- the above test is there to handle long FL cases, as the DoF.near and Dof.far may be too close together
+		-- which can throw out the script.
+		-- So don't use a long lens ;-)
+	display.notify_box("Warning: Change lens FL or focus point", 2000)
 	else
 		AutoCalc()
 		TakeBlackFrame()
