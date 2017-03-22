@@ -56,15 +56,15 @@ function AutoCalc()
 
     while true do
         if lens.focus_distance > lens.hyperfocal then
-			repeat
-				lens.focus(1,1,false)
-			until lens.focus_distance <= lens.hyperfocal
+			repeat lens.focus(1,1,false) until lens.focus_distance <= lens.hyperfocal
 			takeshoot()
             break
         end
-        repeat
-	        lens.focus(-1,2,false)
-	    until lens.dof_near >= target   --move the min dof focus point of the next photo to the max dof of old photo
+		
+		repeat lens.focus(-1,2,false) until lens.dof_near >= target   --move the min dof focus point of the next photo to the max dof of old photo
+		if lens.dof_near > target then
+			repeat lens.focus(1,1,false) until lens.focus_distance <= target
+		end
         target = lens.dof_far
         takeshoot()
     end
