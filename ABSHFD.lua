@@ -20,9 +20,14 @@ function main()
     console.show()
     print "Starting...."
     msleep(1000)
-    console.hide()
-    AutoCalc()
-	TakeBlackFrame()
+	if lens.focus_distance > lens.hyperfocal then
+		display.notify_box("FP > HFD", 2000)
+	else
+		console.hide()
+		AutoCalc()
+		TakeBlackFrame()
+	end
+
 
 
 end

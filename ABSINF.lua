@@ -22,9 +22,13 @@ function main()
     console.show()
     print "Starting...."
     msleep(1000)
-    console.hide()
-    AutoCalc()
-	TakeBlackFrame()
+	if lens.focus_distance > infinity then
+		display.notify_box("FP > INF", 2000)
+	else
+		console.hide()
+		AutoCalc()
+		TakeBlackFrame()
+	end
 
 
 end
