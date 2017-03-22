@@ -19,17 +19,13 @@ infinity = 655000
 
 function main()
     menu.close()
-    console.show()
-    print "Starting...."
-    msleep(1000)
+	display.notify_box("Starting....", 1000)
 	if lens.focus_distance > infinity then
 		display.notify_box("FP > INF", 2000)
-	else
-		console.hide()
+	else		
 		AutoCalc()
 		TakeBlackFrame()
 	end
-
 
 end
 
@@ -75,7 +71,7 @@ function AutoCalc()
 end
 
 function takeshoot()
-local shutterok = camera.shutter.value
+	local shutterok = camera.shutter.value
     console.show()
     print("first shot at %s", camera.shutter.ms)
     msleep(1000)

@@ -17,19 +17,13 @@ keymenu = menu.new
 
 function main()
     menu.close()
-    console.show()
-    print "Starting...."
-    msleep(1000)
-	if lens.focus_distance > lens.hyperfocal then
+	display.notify_box("Starting....", 1000)
+ 	if lens.focus_distance > lens.hyperfocal then
 		display.notify_box("FP > HFD", 2000)
 	else
-		console.hide()
 		AutoCalc()
 		TakeBlackFrame()
 	end
-
-
-
 end
 
 function TakeBlackFrame()  --Put a black frame at the and of bracketed image
@@ -74,7 +68,7 @@ function AutoCalc()
 end
 
 function takeshoot()
-local shutterok = camera.shutter.value
+	local shutterok = camera.shutter.value
     console.show()
     print("first shot at %s", camera.shutter.ms)
     msleep(1000)
