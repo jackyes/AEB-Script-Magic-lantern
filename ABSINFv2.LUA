@@ -51,7 +51,7 @@ function TakeBlackFrame()  --Put a black frame at the and of bracketed image
 		camera.iso.value = 100
 		
 		--Take the black shoot
-		camera.shoot(64,false)
+		camera.shoot(false)
 		
 		--Reset tv,av and iso old value
 		camera.shutter.ms = tv
@@ -86,16 +86,16 @@ function takeshoot()
     console.show()
     print("first shot at %s", camera.shutter.ms)
     msleep(1000)
-    shoot (64,false)
+    shoot(false)
     msleep(2000)
     camera.shutter.value = shutterok * 4
     print("second shot at 2EV %s", camera.shutter.ms)
     msleep(1000)
-    shoot (64,false)
+    shoot(false)
     camera.shutter.value = shutterok / 4
     print("second shot at -2EV %s", camera.shutter.ms)
     msleep(1000)
-    shoot (64,false)
+    shoot(false)
     camera.shutter.value = shutterok
     console.hide()
 end
