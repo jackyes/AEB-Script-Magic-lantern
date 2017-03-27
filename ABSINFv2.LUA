@@ -82,20 +82,20 @@ function AutoCalc()
 end
 
 function takeshoot()
-	local shutterok = camera.shutter.value
+    local shutterok = camera.shutter.value
     console.show()
-	console.clear()
+    console.clear()
     print("first shot at %s", camera.shutter.ms)
     msleep(1000)
     shoot(false)
     msleep(2000)
     camera.shutter.value = shutterok * 4
-	console.clear()
+    console.clear()
     print("second shot at 2EV %s", camera.shutter.ms)
     msleep(1000)
     shoot(false)
     camera.shutter.value = shutterok / 4
-	console.clear()
+    console.clear()
     print("second shot at -2EV %s", camera.shutter.ms)
     msleep(1000)
     shoot(false)
