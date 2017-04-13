@@ -85,18 +85,18 @@ function takeshoot()
     local shutterok = camera.shutter.value
     console.show()
     console.clear()
-    print("first shot at %s", camera.shutter.ms)
+    print("First shot at %s", camera.shutter.ms)
     msleep(1000)
     shoot(false)
     msleep(2000)
     camera.shutter.value = shutterok * 4
     console.clear()
-    print("second shot at 2EV %s", camera.shutter.ms)
+    print("Second shot at 2EV %s", camera.shutter.ms)
     msleep(1000)
     shoot(false)
     camera.shutter.value = shutterok / 4
     console.clear()
-    print("second shot at -2EV %s", camera.shutter.ms)
+    print("Third shot at -2EV %s", camera.shutter.ms)
     msleep(1000)
     shoot(false)
     camera.shutter.value = shutterok
