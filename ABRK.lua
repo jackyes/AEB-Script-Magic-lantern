@@ -6,9 +6,6 @@ keymenu = menu.new
 }
 
 function main()
-    if camera.iso == "AutoISO" then
-	display.notify_box("Disable AutoISO!", 2000)	
-    else
     	local shutterok = camera.shutter.value
     	console.show()
     	console.clear()
@@ -28,8 +25,6 @@ function main()
     	msleep(750)
     	shoot(false)
     	camera.shutter.value = shutterok
-    	console.hide()
-    end
-	
+    	console.hide()	
 end
 
