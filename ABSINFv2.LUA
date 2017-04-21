@@ -22,6 +22,8 @@ function main()
 	display.notify_box("Starting....", 1000)
 	if lens.focus_distance > infinity then
 		display.notify_box("FP > INF", 2000)
+	elseif camera.iso == "AutoISO" then
+		display.notify_box("Disable AutoISO!", 2000)	
 	elseif lens.dof_far == lens.dof_near then
 		--THANKS to grayheron!!
 		display.notify_box("Check ML setting for CoC", 2000)
