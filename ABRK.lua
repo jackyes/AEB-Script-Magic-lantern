@@ -11,20 +11,19 @@ function main()
     	console.clear()
     	print("First shot at %s", camera.shutter.ms)
     	msleep(750)
-    	shoot(false)
+    	shoot(64,false)
     	msleep(750)
     	camera.shutter.value = shutterok * 4
     	console.clear()
     	print("Second shot at 2EV %s", camera.shutter.ms)
     	msleep(750)
-    	shoot(false)
+    	shoot(64,false)
     	msleep(750)
     	camera.shutter.value = shutterok / 4
     	console.clear()
     	print("Third shot at -2EV %s", camera.shutter.ms)
     	msleep(750)
-    	shoot(false)
+    	shoot(64,false)
     	camera.shutter.value = shutterok
     	console.hide()	
 end
-
